@@ -1,12 +1,30 @@
 backend:
-  name: github
-  repo: Kashank3/4youprinting-site
+  name: git-gateway
   branch: main
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+site_url: https://guiless-frangipane-d77776.netlify.app
+display_url: https://guiless-frangipane-d77776.netlify.app
+
 collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Hero Section"
+        name: "hero"
+        file: "content/hero.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Slides"
+            name: "slides"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string" }
+
   - name: "projects"
     label: "Projects"
     folder: "content/projects"
@@ -14,15 +32,5 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Project Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
       - { label: "Description", name: "description", widget: "text" }
-
-  - name: "homepage"
-    label: "Homepage"
-    files:
-      - label: "Hero Section"
-        name: "hero"
-        file: "content/home/hero.yml"
-        fields:
-          - { label: "Heading", name: "heading", widget: "string" }
-          - { label: "Subheading", name: "subheading", widget: "text" }
+      - { label: "Thumbnail", name: "image", widget: "image" }
